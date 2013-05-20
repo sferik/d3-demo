@@ -15,5 +15,11 @@ button.onclick = function () {
     .transition()
     .duration(3000)
     .attr("width", function(value){return value;})
-    .attr("y", function(value, i){return i * 40})
+    .attr("y", function(value, i){return i * 40;})
+    .transition()
+    .duration(3000)
+    .style('fill', 'pink')
+    .transition()
+    .duration(3000)
+    .attr("width", function(value){return value * 2;})
 };
