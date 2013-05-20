@@ -3,7 +3,7 @@ var container = document.getElementById('container');
 
 button.onclick = function () {
   var svg = d3.select('div#container svg');
-  var data = [100, 75, 150];
+  var data = [100, 75, 150, 50, 90];
 
   svg.selectAll('rect')
     .data(data)
