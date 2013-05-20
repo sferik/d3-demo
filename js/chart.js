@@ -3,24 +3,24 @@ var container = document.getElementById('container');
 
 button.onclick = function () {
   var svg = d3.select('div#container svg');
-  var data = [14, 8, 10, 20, 12];
+  var data = [
+    {x: 250, y: 10},
+    {x: 200, y: 20},
+    {x: 150, y: 30},
+    {x: 100, y: 25},
+    {x: 50, y: 45},
+    {x: 0, y: 30}
+  ];
 
-  var selection = svg.selectAll('circle')
-    .data(data);
+  var lineFunction = d3.svg.line()
+    .x(function(d){ return d.x;})
+    .y(function(d){ return d.y + 100;})
+    .interpolate('cardinal')
 
-  selection
-    .enter()
-    .append('circle')
-    .attr('r', function (value){return value;})
-    .attr('cy', 22)
-    .transition()
-    .duration(3000)
-    .attr('cy', function (value, i){return i * 40 + 15;})
-    .attr('cx', 22)
-    .transition()
-    .duration(3000)
-    .attr('cx', function (value, i){return i * 60 + 15;})
-    .transition()
-    .duration(3000)
-    .style('opacity', 0);
+  svg.append('path')
+    .style("fill", "blue")
+    .style("stroke", "red")
+    .style("stroke-width", 2)
+    .attr("d", lineFunction(data));
+
 };
