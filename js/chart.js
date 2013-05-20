@@ -3,22 +3,24 @@ var container = document.getElementById('container');
 
 button.onclick = function () {
   var svg = d3.select('div#container svg');
-  var data = [100, 75, 150, 50, 90];
+  var data = [14, 8, 10, 20, 12];
 
-  svg.selectAll('rect')
-    .data(data)
+  var selection = svg.selectAll('circle')
+    .data(data);
+
+  selection
     .enter()
-    .append('rect')
-    .attr("height", 30)
-    .attr("width", 0)
+    .append('circle')
+    .attr('r', function (value){return value;})
+    .attr('cy', 22)
     .transition()
     .duration(3000)
-    .attr("width", function(value){return value;})
-    .attr("y", function(value, i){return i * 40;})
+    .attr('cy', function (value, i){return i * 40 + 15;})
+    .attr('cx', 22)
     .transition()
     .duration(3000)
-    .style('fill', 'pink')
+    .attr('cx', function (value, i){return i * 60 + 15;})
     .transition()
     .duration(3000)
-    .attr("width", function(value){return value * 2;})
+    .style('opacity', 0);
 };
