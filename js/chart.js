@@ -1,19 +1,29 @@
 var button = document.getElementById('button');
 var container = document.getElementById('container');
 
-var xOffset = 0;
-
 button.onclick = function () {
-  xOffset += 20;
   var svg = d3.select('div#container svg');
-  svg.append('rect')
-    .attr({
-      "x": xOffset,
-      "width": 100,
-      "height": 100
-    })
-    .transition().duration(2000)
-    .style("fill", "green")
-    .transition().duration(3000)
-    .style("fill", "blue");
+  var data = [100, 75, 150];
+  var rect1 = svg.append('rect');
+  var rect2 = svg.append('rect');
+  var rect3 = svg.append('rect');
+
+  rect1.attr({
+    "width": data[0],
+    "height": 30,
+    "y": 0
+  });
+
+  rect2.attr({
+    "width": data[1],
+    "height": 30,
+    "y": 40
+  });
+
+  rect3.attr({
+    "width": data[2],
+    "height": 30,
+    "y": 80
+  });
+
 };
