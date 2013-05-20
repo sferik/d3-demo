@@ -9,5 +9,7 @@ button.onclick = function () {
       "height": 100
     })
     .transition().duration(2000)
-    .style("fill", "green");
+    .style("fill", "green")
+    .transition().duration(3000)
+    .style("fill", "blue");
 };
