@@ -8,5 +8,6 @@ button.onclick = function () {
       "width": 100,
       "height": 100
     })
+    .transition().duration(2000)
     .style("fill", "green");
 };
