@@ -8,22 +8,9 @@ button.onclick = function () {
   var rect2 = svg.append('rect');
   var rect3 = svg.append('rect');
 
-  rect1.attr({
-    "width": data[0],
-    "height": 30,
-    "y": 0
-  });
-
-  rect2.attr({
-    "width": data[1],
-    "height": 30,
-    "y": 40
-  });
-
-  rect3.attr({
-    "width": data[2],
-    "height": 30,
-    "y": 80
-  });
-
+  svg.selectAll('rect')
+    .data(data)
+    .attr("height", 30)
+    .attr("width", function(value){return value;})
+    .attr("y", function(value, i){return i * 40})
 };
