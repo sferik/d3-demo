@@ -11,6 +11,9 @@ button.onclick = function () {
   svg.selectAll('rect')
     .data(data)
     .attr("height", 30)
+    .attr("width", 0)
+    .transition()
+    .duration(3000)
     .attr("width", function(value){return value;})
     .attr("y", function(value, i){return i * 40})
 };
